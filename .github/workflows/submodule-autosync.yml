@@ -1,8 +1,7 @@
 on:
   workflow_dispatch:
 
-env:
-  GIT_TERMINAL_PROMPT: 1
+permissions: write-all
 
 jobs:
   sync:
@@ -17,7 +16,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
       with:
-        token: ${{ secrets.GLITONEA_CI_TOKEN }}
+        token: $GITHUB_TOKEN
         submodules: true
 
     - name: Update submodules
@@ -29,5 +28,5 @@ jobs:
       run: |
         git config --global user.name 'Submodule Autosync'
         git config --global user.email 'autosync@noreply.github.com'
-        git remote set-url origin https://x-access-token:${{ secrets.GLITONEA_CI_TOKEN }}@github.com/${{ github.repository }}
+        git remote set-url origin https://x-access-token:$GITHUB_TOKEN@github.com/${{ github.repository }}
         git commit -am "Auto updated submodule references" && git push || echo "No changes to commit"
