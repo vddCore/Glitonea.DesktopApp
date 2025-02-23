@@ -10,3 +10,6 @@
 [submodule "Glitonea.Framework/Glitonea.UI"]
 	path = Glitonea.Framework/Glitonea.UI
 	url = git@github.com:vddCore/Glitonea.UI.git
+[submodule "Glitonea.Framework/Glitonea.Persistence"]
+	path = Glitonea.Framework/Glitonea.Persistence
+	url = git@github.com:vddCore/Glitonea.Persistence

@@ -25,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Glitonea.Framework\Glitonea.Persistence\Glitonea.Persistence.Json\Glitonea.Persistence.Json.csproj" />
     <ProjectReference Include="..\Glitonea.Framework\Glitonea.UI\Glitonea.UI.csproj" />
     <ProjectReference Include="..\Glitonea.Framework\Glitonea\Glitonea.csproj" />
   </ItemGroup>
