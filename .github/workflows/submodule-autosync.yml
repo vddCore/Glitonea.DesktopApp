@@ -1,7 +1,8 @@
 on:
   workflow_dispatch:
 
-permissions: write-all
+env:
+  CI_TOKEN: ${{ secrets.GLITONEA_CI_TOKEN }}
 
 jobs:
   sync:
@@ -16,7 +17,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
       with:
-        token: $GITHUB_TOKEN
+        token: ${{ env.CI_TOKEN }}
         submodules: true
 
     - name: Update submodules
@@ -26,5 +27,5 @@ jobs:
 
     - name: Push to repository
       run: |
-        git remote set-url origin https://x-access-token:$GITHUB_TOKEN@github.com/${{ github.repository }}
+        git remote set-url origin https://x-access-token:${{ env.CI_TOKEN }}@github.com/${{ github.repository }}
         git commit -c "user.name='Submodule Autosync'" -c "user.email=autosync@noreply.github.com" -am "Submodule autosync." && git push || echo "Nothing to sync."
