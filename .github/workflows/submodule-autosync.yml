@@ -26,7 +26,5 @@ jobs:
 
     - name: Push to repository
       run: |
-        git config --global user.name 'Submodule Autosync'
-        git config --global user.email 'autosync@noreply.github.com'
         git remote set-url origin https://x-access-token:$GITHUB_TOKEN@github.com/${{ github.repository }}
-        git commit -am "Auto updated submodule references" && git push || echo "No changes to commit"
+        git commit -c "user.name='Submodule Autosync'" -c "user.email=autosync@noreply.github.com" -am "Submodule autosync." && git push || echo "Nothing to sync."
