@@ -1,6 +1,9 @@
 on:
   workflow_dispatch:
 
+env:
+  GIT_TERMINAL_PROMPT: 1
+
 jobs:
   sync:
     name: 'Submodule Autosync'
@@ -11,18 +14,18 @@ jobs:
         shell: bash
 
     steps:
-    - name: Checkout
+    - name: Checkout repository
       uses: actions/checkout@v2
       with:
         token: ${{ secrets.GLITONEA_CI_TOKEN }}
         submodules: true
 
-    - name: Git Submodule Update
+    - name: Update submodules
       run: |
         git pull --recurse-submodules
         git submodule update --remote --recursive
 
-    - name: Commit update
+    - name: Push to repository
       run: |
         git config --global user.name 'Submodule Autosync'
         git config --global user.email 'autosync@noreply.github.com'
