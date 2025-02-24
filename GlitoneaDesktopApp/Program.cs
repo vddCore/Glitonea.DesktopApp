@@ -1,6 +1,7 @@
 ﻿namespace GlitoneaDesktopApp;
 
 using System;
+using System.Reflection;
 using Avalonia;
 using Glitonea;
 
@@ -13,7 +14,7 @@ internal static class Program
 
     public static AppBuilder BuildAvaloniaApp()
         => AppBuilder.Configure<App>()
-            .UseGlitoneaFramework()
+            .UseGlitoneaFramework(Assembly.GetExecutingAssembly())
             .UsePlatformDetect()
             .WithInterFont()
             .LogToTrace();

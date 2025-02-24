@@ -5,6 +5,7 @@ using Autofac;
 using Glitonea.Extensibility;
 using GlitoneaDesktopApp.View.Windows;
 
+[DoNotNotify]
 public partial class App : Application, IContainerBuildingSubscriber
 {
     public override void Initialize()

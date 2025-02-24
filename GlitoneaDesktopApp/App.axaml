@@ -6,13 +6,17 @@
              x:Class="GlitoneaDesktopApp.App"
              RequestedThemeVariant="Default">
     <Application.Resources>
-        <gli:Glitonea />
-        <gui:GlitoneaUI />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <gli:Glitonea />
+                <gui:GlitoneaUI />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
-    
+
     <Application.Styles>
         <FluentTheme />
-        
+
         <fa:FluentAvaloniaTheme PreferSystemTheme="True" />
     </Application.Styles>
 </Application>
