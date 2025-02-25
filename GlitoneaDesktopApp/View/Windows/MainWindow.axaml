@@ -4,7 +4,13 @@
                   xmlns:gui="clr-namespace:Glitonea.UI;assembly=Glitonea.UI"
                   xmlns:mvvm="clr-namespace:Glitonea.Mvvm;assembly=Glitonea"
                   xmlns:vm="clr-namespace:GlitoneaDesktopApp.ViewModel.Windows"
+                  xmlns:coreui="clr-namespace:GlitoneaDesktopApp.View.CoreUI"
                   DataContext="{mvvm:DataContextSource vm:MainWindowViewModel}"
-                  Title="GlitoneaDesktopApp">
-
+                  Width="800"
+                  Height="480"
+                  WindowStartupLocation="CenterScreen"
+                  Title="GlitoneaDesktopApp"
+                  CaptionBarBackground="#54000000"
+                  Background="#3A000000">
+    <coreui:MainView />
 </gui:FluentWindow>
